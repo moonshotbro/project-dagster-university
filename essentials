@@ -1,0 +1,12 @@
+#!/bin/bash
+# Shortcut script to dagster_university/dagster_essentials
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+TARGET_DIR="$SCRIPT_DIR/dagster_university/dagster_essentials"
+
+if [ $# -eq 0 ]; then
+    echo "Changing to: $TARGET_DIR"
+    exec bash -c "cd '$TARGET_DIR' && exec bash"
+else
+    cd "$TARGET_DIR" && "$@"
+fi
